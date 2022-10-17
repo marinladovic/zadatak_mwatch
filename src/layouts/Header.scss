@@ -1,0 +1,73 @@
+@import '../index.scss';
+
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.header-bg {
+  background-color: $color-dark;
+}
+
+.header-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $size-base $size-xl;
+}
+
+.header-content__left {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  column-gap: $size-2xl;
+}
+
+.header-logo,
+.header-logo:visited,
+.header-logo:active,
+.header-logo:focus,
+.header-logo:hover {
+  color: $color-light;
+  font-size: $size-lg;
+  font-weight: 400;
+  text-decoration: none;
+}
+
+.header-logo span {
+  color: $color-primary-500;
+  font-weight: 600;
+}
+
+.header-links {
+  list-style: none;
+  display: flex;
+  align-items: center;
+  column-gap: $size-base;
+  margin-bottom: 0;
+  padding: 0;
+}
+
+.header-links__item,
+.header-links__item:visited,
+.header-links__item:active {
+  text-decoration: none;
+  color: $color-light;
+  font-size: $size-sm;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.header-links__item:hover,
+.header-links__item:focus {
+  color: $color-primary-400;
+  transition: all;
+  transition-duration: 0.3s;
+}
+
+.header-content__right {
+  display: flex;
+}

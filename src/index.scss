@@ -1,0 +1,86 @@
+@import '~bootstrap/scss/bootstrap';
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Source+Sans+Pro&display=swap');
+
+/* breakpoints */
+$sm: 576px;
+$md: 768px;
+$lg: 992px;
+$xl: 1200px;
+$xxl: 1400px;
+
+/* type scale (Major Third) */
+$size-3xs: 0.41rem; // 6.55px
+$size-2xs: 0.512rem; // 8.19px
+$size-xs: 0.64rem; // 10.24px
+$size-sm: 0.8rem; // 12.8px
+$size-base: 1rem; // 16px
+$size-lg: 1.25rem; // 20px
+$size-xl: 1.563rem; // 25px
+$size-2xl: 1.953rem; // 31.25px
+$size-3xl: 2.441rem; // 39.06px
+$size-4xl: 3.052rem; // 48.83px
+$size-5xl: 3.815rem; // 61.04px
+$size-6xl: 4.768rem; // 76.16px
+$size-7xl: 5.96rem; // 95.36px
+$size-8xl: 7.45rem; // 119.2px
+
+/* colors */
+$color-dark: #141414;
+$color-light: #f6f7fe;
+$color-text: #fff;
+$color-primary-50: #eef2ff;
+$color-primary-100: #e0e7ff;
+$color-primary-200: #c7d2fe;
+$color-primary-300: #a5b4fc;
+$color-primary-400: #818cf8;
+$color-primary-500: #404eed;
+$color-primary-600: #7c3aed;
+$color-primary-700: #6d28d9;
+$color-primary-800: #5b21b6;
+$color-primary-900: #4c1d95;
+
+/* typeface */
+$font-primary: 'Inter', sans-serif;
+$font-secondary: 'Source Sans Pro', sans-serif;
+
+/* font weights */
+$font-light: 300;
+$font-normal: 400;
+$font-medium: 500;
+$font-semibold: 600;
+$font-bold: 700;
+
+/* text-shadow */
+$text-shadow: 0px 0px 1px rgba(0, 0, 0, 0.2), 0px 0px 1px rgba(1, 0, 5, 0.1);
+$text-shadow-sm: 1px 1px 3px rgba(36, 37, 47, 0.25);
+$text-shadow-md: 0px 1px 2px rgba(30, 29, 39, 0.19),
+  1px 2px 4px rgba(54, 64, 147, 0.18);
+$text-shadow-lg: 3px 3px 6px rgba(0, 0, 0, 0.26),
+  0px 0px 5px rgba(15, 3, 86, 0.22);
+$text-shadow-xl: 1px 1px 3px rgba(0, 0, 0, 0.29),
+  2px 4px 7px rgba(73, 64, 125, 0.35);
+$text-shadow-none: none;
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: $font-primary;
+  font-weight: $font-normal;
+  color: $color-text;
+  background-color: $color-dark;
+}
+
+/* background gradient */
+.gradient-to-b {
+  background: linear-gradient(
+    to bottom,
+    rgba(20, 20, 20, 0) 0,
+    rgba(20, 20, 20, 0.15) 15%,
+    rgba(20, 20, 20, 0.35) 29%,
+    rgba(20, 20, 20, 0.58) 44%,
+    #141414 68%,
+    #141414 100%
+  );
+}

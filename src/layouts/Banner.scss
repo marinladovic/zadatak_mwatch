@@ -1,0 +1,28 @@
+.banner {
+  display: flex;
+  flex-direction: column;
+}
+
+.banner-image-container {
+  z-index: -1;
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 95vh;
+  width: 100%;
+}
+
+.banner-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.banner-blend {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100%;
+  z-index: -1;
+}
