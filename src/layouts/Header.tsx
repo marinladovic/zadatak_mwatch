@@ -4,11 +4,11 @@ import { FaSearch } from 'react-icons/fa';
 import './Header.scss';
 import { useAppDispatch } from '../store/hooks';
 import { toggleSearchModal } from '../store/searchModal-slice';
+import BookmarkDropdown from '../components/BookmarkDropdown/BookmarkDropdown';
 
 function Header() {
   const dispatch = useAppDispatch();
   const [isScrolled, setIsScrolled] = useState(false);
-  //const [isNavOpen, setIsNavOpen] = useState(false);
 
   const handleShowSearchModal = () => {
     dispatch(toggleSearchModal());
@@ -44,8 +44,8 @@ function Header() {
             </li>
           </ul>
         </div>
-
         <div className="header-content__right">
+          <BookmarkDropdown />
           <FaSearch
             className="search-icon"
             onClick={() => handleShowSearchModal()}

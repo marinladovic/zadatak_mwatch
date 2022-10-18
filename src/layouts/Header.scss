@@ -70,6 +70,8 @@ header {
 
 .header-content__right {
   display: flex;
+  align-items: center;
+  column-gap: $size-base;
 }
 
 .search-icon {

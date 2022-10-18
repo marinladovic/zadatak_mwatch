@@ -1,0 +1,34 @@
+@import '../../index.scss';
+
+#bookmark-dropdown-button {
+  background-color: transparent;
+  border: none;
+  padding: 0;
+}
+
+#bookmark-menu {
+  width: 250px;
+  background-color: $color-dark;
+  color: $color-light;
+}
+
+.bookmark-container {
+  display: flex;
+  align-items: center;
+  padding: $size-xs $size-sm;
+  column-gap: $size-sm;
+}
+
+.bookmark-link,
+.bookmark-link:visited,
+.bookmark-link:active {
+  text-decoration: none;
+  color: $color-light;
+  font-size: $size-sm;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.bookmark-link:hover {
+  color: $color-primary-500;
+}
