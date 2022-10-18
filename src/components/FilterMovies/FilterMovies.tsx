@@ -4,15 +4,9 @@ import Button from 'react-bootstrap/Button';
 import { FaFilter } from 'react-icons/fa';
 import { AiOutlineClose } from 'react-icons/ai';
 import './FilterMovies.scss';
-import GenrePicker from './GenrePicker';
-import { useAppDispatch } from '../../store/hooks';
-import { clearAllFilters } from '../../store/filter-slice';
-import YearPicker from './YearPicker';
-import MinVoteAverage from './MinVoteAverage';
-import MinVoteCount from './MinVoteCount';
+import Filters from './Filters';
 
 function FilterMovies() {
-  const dispatch = useAppDispatch();
   const [showOffcanvas, setShowOffcanvas] = useState<boolean>(false);
 
   const handleOffcanvasClose = () => setShowOffcanvas(false);
@@ -46,20 +40,7 @@ function FilterMovies() {
           </Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <button
-            className="clear-single-filter clear-all-filters"
-            onClick={() => {
-              dispatch(clearAllFilters());
-            }}
-          >
-            CLEAR ALL FILTERS
-          </button>
-          <div className="filter-form">
-            <YearPicker />
-            <GenrePicker />
-            <MinVoteAverage />
-            <MinVoteCount />
-          </div>
+          <Filters />
         </Offcanvas.Body>
       </Offcanvas>
     </div>

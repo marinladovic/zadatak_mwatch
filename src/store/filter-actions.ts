@@ -1,7 +1,7 @@
 import axios from 'axios';
 import { IFilterState } from './filter-slice';
 import { AppDispatch } from './index';
-import { setMovies } from './movie-slice';
+import { setMovies, addMovies } from './movie-slice';
 import buildFilterRequest from '../utils/buildFilterRequest';
 
 export const fetchFilteredData = (filter: IFilterState) => {
@@ -20,9 +20,26 @@ export const fetchFilteredData = (filter: IFilterState) => {
 
     try {
       const data = await fetchData();
-      dispatch(setMovies(data));
+      if (filter.page === 1) {
+        dispatch(setMovies(data));
+      } else {
+        dispatch(addMovies(data));
+      }
     } catch (error) {
       console.log(error);
     }
+  };
+};
+
+export const clearFilteredData = () => {
+  return async (dispatch: AppDispatch) => {
+    dispatch(
+      setMovies({
+        page: 0,
+        results: [],
+        total_pages: 0,
+        total_results: 0,
+      })
+    );
   };
 };

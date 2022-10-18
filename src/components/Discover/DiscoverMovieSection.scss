@@ -1,0 +1,58 @@
+@import '../../index.scss';
+
+.row-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+}
+
+.row-content-container {
+  position: relative;
+}
+
+.chevron-icon-container {
+  width: $size-2xl;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: $size-xl;
+  cursor: pointer;
+  z-index: 10;
+}
+
+.chevron-icon-container:hover {
+  background-color: rgba(0, 0, 0, 0.6);
+  font-size: $size-2xl;
+  transition: all 0.2s ease-in-out;
+}
+
+.chevron-icon-container__left {
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.chevron-icon-container__right {
+  position: absolute;
+  top: 0;
+  right: 0rem;
+}
+
+.chevron-icon {
+  fill: $color-light;
+}
+
+.thumbnails-container {
+  display: flex;
+  align-items: center;
+  overflow-x: scroll;
+  column-gap: $size-sm;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+.thumbnails-container::-webkit-scrollbar {
+  display: none;
+}

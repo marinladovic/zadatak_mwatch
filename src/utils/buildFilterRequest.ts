@@ -4,7 +4,8 @@ const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
 const buildFilterRequest = (filter: IFilterState) => {
   let requestString = '';
-  const { changed, genreIds, year, minVoteAverage, minVoteCount } = filter;
+  const { changed, genreIds, year, minVoteAverage, minVoteCount, page } =
+    filter;
   if (changed) {
     const yearRequest = filter.year.hasChanged
       ? `&primary_release_year=${year.value}`
@@ -15,8 +16,9 @@ const buildFilterRequest = (filter: IFilterState) => {
       minVoteAverage > 0 ? `&vote_average.gte=${minVoteAverage}` : '';
     const minVoteCountRequest =
       minVoteCount > 0 ? `&vote_count.gte=${minVoteCount}` : '';
+    const pageRequest = page > 1 ? `&page=${page}` : '';
 
-    requestString = `${DISCOVER_URL}?api_key=${API_KEY}&language=en-US${yearRequest}${genresRequest}${minVoteAverageRequest}${minVoteCountRequest}`;
+    requestString = `${DISCOVER_URL}?api_key=${API_KEY}&language=en-US${yearRequest}${genresRequest}${minVoteAverageRequest}${minVoteCountRequest}${pageRequest}`;
   }
   return requestString;
 };

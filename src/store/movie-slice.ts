@@ -27,6 +27,13 @@ const movieSlice = createSlice({
       state.total_pages = total_pages;
       state.total_results = total_results;
     },
+    addMovies(state, action: PayloadAction<IFilterResult>) {
+      const { page, results, total_pages, total_results } = action.payload;
+      state.movies = [...state.movies, ...results];
+      state.page = page;
+      state.total_pages = total_pages;
+      state.total_results = total_results;
+    },
     clearMovies(state) {
       state.movies = [];
       state.page = 0;
@@ -36,6 +43,7 @@ const movieSlice = createSlice({
   },
 });
 
-export const { setMovies, clearMovies } = movieSlice.actions;
+export const { setMovies, addMovies, clearMovies } = movieSlice.actions;
+export const selectFilteredMovies = (state: RootState) => state.movie;
 export const selectMovies = (state: RootState) => state.movie.movies;
 export default movieSlice;

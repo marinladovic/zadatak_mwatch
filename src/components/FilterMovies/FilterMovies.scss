@@ -56,3 +56,9 @@
   flex-direction: column;
   row-gap: $size-xl;
 }
+
+@media (min-width: $lg) {
+  .offcanvas-container {
+    display: none;
+  }
+}

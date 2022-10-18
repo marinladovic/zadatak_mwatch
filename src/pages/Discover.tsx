@@ -1,33 +1,25 @@
-import useFetch from '../hooks/useFetch';
 import useBannerMovie from '../hooks/useBannerMovie';
 import './Discover.scss';
-import requests from '../utils/requests';
 import { IMovie } from '../typings';
 import Banner from '../layouts/Banner';
 import Heading from '../layouts/Heading';
 import FilterMovies from '../components/FilterMovies/FilterMovies';
 import { useAppDispatch, useAppSelector } from '../store/hooks';
+import { selectFilteredMovies } from '../store/movie-slice';
 import { useEffect } from 'react';
 import { fetchFilteredData } from '../store/filter-actions';
+import { selectFilter } from '../store/filter-slice';
+import FilteredDiscoverLayout from '../components/Discover/FilteredDiscoverLayout';
+import InitialDiscoverLayout from '../components/Discover/InitialDiscoverLayout';
+import Filters from '../components/FilterMovies/Filters';
 
 let isInitial = true;
 
 function Discover() {
   const dispatch = useAppDispatch();
-  const filter = useAppSelector((state: any) => state.filter);
+  const filter = useAppSelector(selectFilter);
+  const filteredMovies = useAppSelector(selectFilteredMovies);
   const bannerMovie: IMovie = useBannerMovie();
-
-  const {
-    fetchNowPlayingMovies,
-    fetchPopularMovies,
-    fetchTopRatedMovies,
-    fetchUpcomingMovies,
-  } = requests;
-
-  const { data: popularMovies } = useFetch(fetchPopularMovies);
-  const { data: nowPlayingMovies } = useFetch(fetchNowPlayingMovies);
-  const { data: topRatedMovies } = useFetch(fetchTopRatedMovies);
-  const { data: upcomingMovies } = useFetch(fetchUpcomingMovies);
 
   useEffect(() => {
     if (isInitial) {
@@ -48,7 +40,18 @@ function Discover() {
           million of titles, and find your next favorite movie."
       />
       <FilterMovies />
-      <main className="discover-main"></main>
+      <main className="discover-main">
+        <div className="filters-sidebar">
+          <Filters />
+        </div>
+        <div className="movie-display">
+          {filteredMovies.movies.length > 0 ? (
+            <FilteredDiscoverLayout />
+          ) : (
+            <InitialDiscoverLayout />
+          )}
+        </div>
+      </main>
     </div>
   );
 }

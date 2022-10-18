@@ -1,0 +1,22 @@
+@import '../../index.scss';
+
+.results-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  grid-gap: 1rem;
+  margin: 0 1rem;
+}
+
+.total-results {
+  margin-left: 1rem;
+  margin-bottom: 1rem;
+}
+
+.load-more-btn {
+  width: 80%;
+  margin: $size-xl auto;
+}
+
+.results-container {
+  width: 100%;
+}

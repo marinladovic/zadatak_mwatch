@@ -1,0 +1,11 @@
+@import '../../index.scss';
+
+.discover-layout__initial {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+  padding: $size-2xl 0;
+  box-sizing: border-box;
+  row-gap: $size-4xl;
+}
