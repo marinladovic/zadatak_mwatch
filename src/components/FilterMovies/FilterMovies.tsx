@@ -7,6 +7,9 @@ import './FilterMovies.scss';
 import GenrePicker from './GenrePicker';
 import { useAppDispatch } from '../../store/hooks';
 import { clearAllFilters } from '../../store/filter-slice';
+import YearPicker from './YearPicker';
+import MinVoteAverage from './MinVoteAverage';
+import MinVoteCount from './MinVoteCount';
 
 function FilterMovies() {
   const dispatch = useAppDispatch();
@@ -52,7 +55,10 @@ function FilterMovies() {
             CLEAR ALL FILTERS
           </button>
           <div className="filter-form">
+            <YearPicker />
             <GenrePicker />
+            <MinVoteAverage />
+            <MinVoteCount />
           </div>
         </Offcanvas.Body>
       </Offcanvas>

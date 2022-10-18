@@ -44,3 +44,15 @@
 .clear-all-filters {
   margin-bottom: $size-base;
 }
+
+.year-label-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.filter-form {
+  display: flex;
+  flex-direction: column;
+  row-gap: $size-xl;
+}
