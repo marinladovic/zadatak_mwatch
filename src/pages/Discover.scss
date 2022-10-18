@@ -1,0 +1,24 @@
+@import '../index.scss';
+
+.discover-container {
+  display: flex;
+  flex-direction: column;
+  padding: $size-6xl $size-xl;
+  max-width: $xl;
+  margin: 0 auto;
+}
+
+.discover-main {
+  display: grid;
+  grid-template-columns: 100%;
+}
+
+.rows-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 100%;
+  margin-top: $size-2xl;
+}
+
+@media (min-width: $lg) {
+}

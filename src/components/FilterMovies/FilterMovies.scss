@@ -1,0 +1,46 @@
+@import '../../index.scss';
+
+.offcanvas-container {
+  display: block;
+}
+
+.offcanvas {
+  background-color: $color-dark;
+}
+
+.offcanvas-title {
+  color: $color-light;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+}
+
+.offcanvas__close-btn {
+  color: $color-light;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.genres-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.filter-single-heading {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: $size-2xs;
+}
+
+.clear-single-filter {
+  color: gray;
+  cursor: pointer;
+  background: transparent;
+  border: none;
+  font-size: $size-sm;
+}
+
+.clear-all-filters {
+  margin-bottom: $size-base;
+}

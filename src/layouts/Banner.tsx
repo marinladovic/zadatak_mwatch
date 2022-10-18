@@ -7,17 +7,14 @@ interface Props {
 }
 
 function Banner({ url, title }: Props) {
-  const placeholder = {
-    url: '/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg',
-    title: 'Maverick',
-  };
-
   return (
     <div className="banner">
       <div className="banner-image-container">
         <img
-          src={`${BANNER_IMAGE_BASE_URL}${url || placeholder.url}`}
-          alt={title || placeholder.title}
+          src={`${BANNER_IMAGE_BASE_URL}${
+            url || '/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg'
+          }`}
+          alt={title || 'Maverick'}
           className="banner-image"
         />
       </div>

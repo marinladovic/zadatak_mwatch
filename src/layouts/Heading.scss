@@ -1,0 +1,8 @@
+@import '../index.scss';
+
+.heading-container {
+  display: flex;
+  flex-direction: column;
+  margin-bottom: $size-4xl;
+  max-width: 60%;
+}

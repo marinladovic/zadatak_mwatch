@@ -72,6 +72,70 @@ body {
   background-color: $color-dark;
 }
 
+/* Typography */
+
+h1 {
+  font-size: $size-xl;
+  font-weight: $font-bold;
+  text-shadow: $text-shadow-md;
+  text-transform: capitalize;
+}
+
+h2 {
+  font-size: $size-lg;
+  font-weight: $font-semibold;
+  text-shadow: $text-shadow-md;
+  text-transform: capitalize;
+}
+
+p {
+  font-size: $size-sm;
+  font-weight: $font-normal;
+  margin-bottom: 0;
+}
+
+@media (min-width: $md) {
+  h1 {
+    font-size: $size-2xl;
+  }
+
+  h2 {
+    font-size: $size-xl;
+  }
+
+  p {
+    font-size: $size-base;
+  }
+}
+
+/* buttons */
+.button {
+  display: flex;
+  column-gap: $size-sm;
+  align-items: center;
+  justify-content: center;
+  padding: $size-sm $size-lg;
+  border-radius: $size-xs;
+  font-size: $size-sm;
+  font-weight: $font-semibold;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s ease-in-out;
+  box-shadow: 5px 10px 18px rgba(0, 0, 0, 0.35);
+  border: none;
+  cursor: pointer;
+}
+
+.button__primary {
+  background-color: $color-primary-500;
+  color: $color-text;
+}
+
+.button__primary:hover,
+.button__primary:focus {
+  background-color: $color-primary-600;
+}
+
 /* background gradient */
 .gradient-to-b {
   background: linear-gradient(
@@ -83,4 +147,14 @@ body {
     #141414 68%,
     #141414 100%
   );
+}
+
+@media (min-width: $lg) {
+  h1 {
+    font-size: $size-4xl;
+  }
+
+  h2 {
+    font-size: $size-2xl;
+  }
 }

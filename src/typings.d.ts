@@ -108,9 +108,9 @@ interface ISelectedYearTimestamp {
   timestamp: number;
 }
 
-interface IFilterData {
+interface IFilterResult {
   results: IMovie[];
   total_pages: number;
   total_results: number;
-  pageIndex: number;
+  page: number;
 }

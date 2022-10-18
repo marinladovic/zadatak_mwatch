@@ -1,14 +1,13 @@
+import useBannerMovie from '../hooks/useBannerMovie';
 import Banner from '../layouts/Banner';
+import { IMovie } from '../typings';
 
 function Home() {
-  const placeholder = {
-    url: '/odJ4hx6g6vBt4lBWKFD1tI8WS4x.jpg',
-    title: 'Maverick',
-  };
+  const bannerMovie: IMovie = useBannerMovie();
 
   return (
     <div>
-      <Banner url={placeholder.url} title={placeholder.title} />
+      <Banner url={bannerMovie.backdrop_path} title={bannerMovie.title} />
     </div>
   );
 }
