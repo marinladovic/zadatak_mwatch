@@ -1,0 +1,44 @@
+@import '../../index.scss';
+
+.search-result-wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  row-gap: $size-base;
+}
+
+.search-result-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  column-gap: $size-base;
+  row-gap: $size-xl;
+}
+
+.search-result {
+  display: flex;
+  cursor: pointer;
+}
+
+.search-result__image {
+  height: 150px;
+  width: 100px;
+  object-fit: cover;
+}
+
+.search-result__info {
+  padding: $size-sm;
+}
+
+.search-result__title {
+  font-size: $size-base;
+  font-weight: 600;
+  margin-bottom: $size-2xs;
+}
+
+.search-result__release-date {
+  font-size: $size-sm;
+}
+
+.search-result__rating {
+  font-size: $size-sm;
+}

@@ -2,7 +2,7 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { IFilterResult, IMovie } from '../typings';
 import type { RootState } from './index';
 
-interface MovieState {
+export interface MovieState {
   movies: IMovie[];
   total_pages: number;
   total_results: number;

@@ -71,3 +71,9 @@ header {
 .header-content__right {
   display: flex;
 }
+
+.search-icon {
+  color: $color-light;
+  font-size: $size-lg;
+  cursor: pointer;
+}
