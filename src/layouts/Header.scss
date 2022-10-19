@@ -23,7 +23,7 @@ header {
 .header-content__left {
   display: flex;
   align-items: center;
-  justify-content: start;
+  justify-content: flex-start;
   column-gap: $size-base;
 }
 
