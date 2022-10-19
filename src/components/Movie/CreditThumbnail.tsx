@@ -5,6 +5,7 @@ interface Props {
   credit: ICredit;
 }
 
+/** Displaying individual cast/crew data */
 function CreditThumbnail({ credit }: Props) {
   return (
     <div className="credit-thumbnail">

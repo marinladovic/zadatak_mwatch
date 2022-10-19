@@ -3,6 +3,7 @@ import { IMovie } from '../typings';
 import requests from '../utils/requests';
 import useFetch from './useFetch';
 
+/** responsible for returning a movie to be displayed in the banner */
 function useBannerMovie() {
   const { fetchPopularMovies } = requests;
   const { data: popularMovies } = useFetch(fetchPopularMovies);

@@ -12,6 +12,7 @@ function Header() {
   const bookmarks = useAppSelector(selectBookmarks);
   const [isScrolled, setIsScrolled] = useState(false);
 
+  /** change navbar background opacity on scroll start */
   const handleShowSearchModal = () => {
     dispatch(toggleSearchModal());
   };

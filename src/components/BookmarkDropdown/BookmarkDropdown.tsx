@@ -6,6 +6,7 @@ import { FaMinusCircle } from 'react-icons/fa';
 import './BookmarkDropdown.scss';
 
 function BookmarkDropdown() {
+  /** get bookmarks from store */
   const dispatch = useAppDispatch();
   const bookmarks = useAppSelector(selectBookmarks);
 

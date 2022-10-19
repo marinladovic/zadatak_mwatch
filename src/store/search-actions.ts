@@ -1,9 +1,12 @@
 import axios from 'axios';
 import { AppDispatch } from '.';
 import { setSearchResults } from './searchModal-slice';
+import { toast } from 'react-hot-toast';
+import { toastStyle_basic } from '../utils/toastStyle';
 import { BASE_URL } from '../utils/constants';
 const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
+/** Responsible for fetching data according to the search query */
 export const fetchSearchData = (searchQuery: string) => {
   return async (dispatch: AppDispatch) => {
     if (searchQuery.length > 0) {
@@ -30,7 +33,10 @@ export const fetchSearchData = (searchQuery: string) => {
           })
         );
       } catch (error) {
-        console.log(error);
+        toast(`Something went wrong. ${error}`, {
+          duration: 3000,
+          style: toastStyle_basic,
+        });
       }
     }
   };

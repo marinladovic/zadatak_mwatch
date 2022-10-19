@@ -10,10 +10,12 @@ function YearPicker() {
   const year = useAppSelector(selectYear);
   const [selectedYear, setSelectedYear] = useState<IFilterYear>(year);
 
+  /** update year in store */
   const handleYearChange = () => {
     dispatch(setYear(selectedYear));
   };
 
+  /** reset year in store */
   const handleClearYear = () => {
     setSelectedYear({
       value: '1970',

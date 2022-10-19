@@ -7,9 +7,9 @@ import './SearchResults.scss';
 
 function SearchResults() {
   const searchResults = useAppSelector(selectSearchResults);
+  const { movies, total_results } = searchResults;
 
   if (!searchResults) return <p>No Search Results</p>;
-  const { movies, total_results } = searchResults;
 
   return (
     <div className="search-result-wrapper">

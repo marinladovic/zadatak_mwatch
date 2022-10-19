@@ -6,6 +6,7 @@ import { toast } from 'react-hot-toast';
 import { toastStyle_basic } from '../utils/toastStyle';
 import buildFilterRequest from '../utils/buildFilterRequest';
 
+/** Responsible for fetching data according to filter change */
 export const fetchFilteredData = (filter: IFilterState) => {
   return async (dispatch: AppDispatch) => {
     const request = buildFilterRequest(filter);
@@ -36,8 +37,9 @@ export const fetchFilteredData = (filter: IFilterState) => {
   };
 };
 
+/** Responsible for reseting the filter result state */
 export const clearFilteredData = () => {
-  return async (dispatch: AppDispatch) => {
+  return (dispatch: AppDispatch) => {
     dispatch(
       setMovies({
         page: 0,

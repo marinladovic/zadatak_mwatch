@@ -9,6 +9,7 @@ interface Props {
   handleOnChange: ChangeEventHandler;
 }
 
+/** Genre checkbox */
 function ListItem({ genre, selected, handleOnChange }: Props) {
   return (
     <div className="mb-1">

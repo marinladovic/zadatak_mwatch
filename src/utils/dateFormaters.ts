@@ -1,5 +1,6 @@
 import moment from 'moment';
 
+/** format the date for ui needs */
 export function formatDate(date: string) {
   return moment(date).format('MMM Do YYYY');
 }

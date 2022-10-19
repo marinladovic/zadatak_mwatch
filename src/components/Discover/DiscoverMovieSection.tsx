@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import { IMovie } from '../../typings';
 import './DiscoverMovieSection.scss';
@@ -11,10 +11,9 @@ interface Props {
 
 function DiscoverMovieSection({ title, movies }: Props) {
   const rowRef = useRef<HTMLDivElement>(null);
-  const [isMoved, setIsMoved] = useState<boolean>(false);
 
+  /** diaplaying movie data in scrollable row */
   const handleScroll = (direction: 'left' | 'right') => {
-    setIsMoved(true);
     if (rowRef.current) {
       const { scrollLeft, clientWidth } = rowRef.current;
 

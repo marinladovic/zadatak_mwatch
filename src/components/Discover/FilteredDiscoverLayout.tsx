@@ -6,10 +6,12 @@ import Thumbnail from './Thumbnail';
 import Button from 'react-bootstrap/esm/Button';
 
 function FilteredDiscoverLayout() {
+  /** get filtered movies from store */
   const { movies, page, total_pages, total_results } =
     useAppSelector(selectFilteredMovies);
   const dispatch = useAppDispatch();
 
+  /** load more movies */
   const handleLoadMore = () => {
     dispatch(increasePageIndex());
   };

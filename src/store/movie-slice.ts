@@ -20,6 +20,7 @@ const movieSlice = createSlice({
   name: 'movie',
   initialState,
   reducers: {
+    /** setting filtered movies to the state */
     setMovies(state, action: PayloadAction<IFilterResult>) {
       const { page, results, total_pages, total_results } = action.payload;
       state.movies = results;
@@ -27,6 +28,7 @@ const movieSlice = createSlice({
       state.total_pages = total_pages;
       state.total_results = total_results;
     },
+    /** adding subsequent pages to the state */
     addMovies(state, action: PayloadAction<IFilterResult>) {
       const { page, results, total_pages, total_results } = action.payload;
       state.movies = [...state.movies, ...results];
@@ -34,6 +36,7 @@ const movieSlice = createSlice({
       state.total_pages = total_pages;
       state.total_results = total_results;
     },
+    /** reseting the movie state */
     clearMovies(state) {
       state.movies = [];
       state.page = 0;

@@ -30,6 +30,7 @@ const filterSlice = createSlice({
   name: 'filter',
   initialState,
   reducers: {
+    /** setting genre filter to the filter state */
     setGenre(state, action: PayloadAction<number>) {
       state.page = 1;
       const newGenreId = action.payload;
@@ -46,15 +47,18 @@ const filterSlice = createSlice({
         state.changed = true;
       }
     },
+    /** clearing genre filter from the filter state */
     clearGenre(state) {
       state.page = 1;
       state.genreIds = [];
     },
+    /** setting year filter to the filter state */
     setYear(state, action: PayloadAction<IFilterYear>) {
       state.page = 1;
       state.year = action.payload;
       state.changed = true;
     },
+    /** clearing year filter from the filter state */
     clearYear(state) {
       state.page = 1;
       state.year = {
@@ -62,30 +66,37 @@ const filterSlice = createSlice({
         hasChanged: false,
       };
     },
+    /** setting minimum vote average filter to the filter state */
     setMinVoteAverage(state, action: PayloadAction<number>) {
       state.page = 1;
       state.minVoteAverage = action.payload;
       state.changed = true;
     },
+    /** clearing minumum vote average filter from the filter state */
     clearMinVoteAverage(state) {
       state.page = 1;
       state.minVoteAverage = 0;
     },
+    /** setting minimum vote count filter to the filter state */
     setMinVoteCount(state, action: PayloadAction<number>) {
       state.page = 1;
       state.minVoteCount = action.payload;
       state.changed = true;
     },
+    /** clearing minimum vote count filter from the filter state */
     clearMinVoteCount(state) {
       state.page = 1;
       state.minVoteCount = 0;
     },
+    /** on load more click, increase the page index */
     increasePageIndex(state) {
       state.page = state.page + 1;
     },
+    /** reset the page index on filter change */
     resetPageIndex(state) {
       state.page = 1;
     },
+    /** reseting all filters to initial state */
     clearAllFilters(state) {
       state.genreIds = [];
       state.year = {

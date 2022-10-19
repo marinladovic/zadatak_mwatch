@@ -13,10 +13,12 @@ function MinVoteCount() {
   const minVoteCount = useAppSelector(selectMinVoteCount);
   const [voteCount, setVoteCount] = useState<number>(minVoteCount);
 
+  /** update vote count in store */
   const handleVoteCountChange = () => {
     dispatch(setMinVoteCount(voteCount));
   };
 
+  /** clear vote count from store */
   const handleClearVoteCount = () => {
     setVoteCount(0);
     dispatch(clearMinVoteCount());

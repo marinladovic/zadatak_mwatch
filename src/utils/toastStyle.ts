@@ -1,3 +1,4 @@
+/** styling the toaster */
 export const toastStyle_basic = {
   background: 'white',
   color: 'black',

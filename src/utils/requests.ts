@@ -1,8 +1,9 @@
 import { BASE_URL } from './constants';
 const API_KEY = process.env.REACT_APP_TMDB_API_KEY;
 
+/** Commonly used requests for app */
 const requests = {
-  /** Fetch lists of movies */
+  /** Fetch lists of movies for discover page */
   fetchPopularMovies: `${BASE_URL}/movie/popular?api_key=${API_KEY}&language=en-US&page=1`,
   fetchTopRatedMovies: `${BASE_URL}/movie/top_rated?api_key=${API_KEY}&language=en-US&page=1`,
   fetchUpcomingMovies: `${BASE_URL}/movie/upcoming?api_key=${API_KEY}&language=en-US&page=1`,
@@ -10,7 +11,7 @@ const requests = {
   fetch2022Documentaries: `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en-US&primary_release_year=2022&with_genres=99`,
   fetchPopularComedies: `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=35`,
   fetchPopularHorrorMovies: `${BASE_URL}/discover/movie?api_key=${API_KEY}&language=en-US&with_genres=27`,
-  /** Fetch list of available movie genres */
+  /** Fetch list of available movie genres for genre filter */
   fetchGenres: `${BASE_URL}/genre/movie/list?api_key=${API_KEY}&language=en-US`,
 };
 

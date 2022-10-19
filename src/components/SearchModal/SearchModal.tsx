@@ -22,27 +22,32 @@ function SearchModal() {
   const searchQuery = useAppSelector(selectSearchQuery);
   const [searchTerm, setSearchTerm] = useState('');
 
+  /** close search modal and reset search data */
   const handleClose = () => {
     dispatch(toggleSearchModal());
     dispatch(resetSearchQuery());
     dispatch(clearSearchResults());
   };
 
+  /** update search query in store */
   const handleSearch = (query: string) => {
     setSearchTerm(query);
     const formatedSearchTerm = formatSearchTerm(searchTerm);
     dispatch(setSearchQuery(formatedSearchTerm));
   };
 
+  /** prevent default behavior on 'Enter' press */
   const handleSubmit = (e: any) => {
     e.preventDefault();
   };
 
+  /** format search term to be used in api request */
   const formatSearchTerm = (searchTerm: string) => {
     const formatedSearchTerm = searchTerm.replace(' ', '+');
     return formatedSearchTerm;
   };
 
+  /** fetch search data on search query change */
   useEffect(() => {
     if (isInitial) {
       isInitial = false;

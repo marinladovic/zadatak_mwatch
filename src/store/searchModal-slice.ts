@@ -23,18 +23,23 @@ const searchModalSlice = createSlice({
   name: 'searchModal',
   initialState,
   reducers: {
+    /** setting search query to redux state */
     setSearchQuery(state, action: PayloadAction<string>) {
       state.searchQuery = action.payload;
     },
+    /** reseting search query in the state */
     resetSearchQuery(state) {
       state.searchQuery = '';
     },
+    /** toggling the search modal */
     toggleSearchModal(state) {
       state.showSerchModal = !state.showSerchModal;
     },
+    /** setting search results to redux state */
     setSearchResults(state, action: PayloadAction<MovieState>) {
       state.searchResults = action.payload;
     },
+    /** reseting search results in the state */
     clearSearchResults(state) {
       state.searchResults = {
         movies: [],

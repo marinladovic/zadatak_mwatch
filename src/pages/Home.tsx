@@ -10,6 +10,7 @@ import FeatureHome from '../components/Home/FeatureHome';
 
 function Home() {
   const navigate = useNavigate();
+  /** fetch random popular movie for the banner */
   const bannerMovie: IMovie = useBannerMovie();
 
   return (

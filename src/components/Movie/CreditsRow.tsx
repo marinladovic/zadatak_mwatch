@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react';
+import { useRef } from 'react';
 import { ICredit } from '../../typings';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import CreditThumbnail from './CreditThumbnail';
@@ -9,12 +9,11 @@ interface Props {
   job: string;
 }
 
+/** diaplaying cast/crew data in scrollable row */
 function CreditsRow({ credits, job }: Props) {
   const rowRef = useRef<HTMLDivElement>(null);
-  const [isMoved, setIsMoved] = useState(false);
 
   const handleScroll = (direction: string) => {
-    setIsMoved(true);
     if (rowRef.current) {
       const { scrollLeft, clientWidth } = rowRef.current;
 

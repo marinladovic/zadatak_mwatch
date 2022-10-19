@@ -7,12 +7,14 @@ import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import { setGenre, clearGenre } from '../../store/filter-slice';
 
 function GenrePicker() {
+  /** fetch genre list from API */
   const { fetchGenres } = requests;
   const { data } = useFetch(fetchGenres);
-  // const [selectedGenres, setSelectedGenres] = useState<IGenre[]>([]);
+
   const dispatch = useAppDispatch();
   const selectedGenres = useAppSelector((state: any) => state.filter.genreIds);
 
+  /** add or remove genre from filter state */
   const handleCheckboxChange = (genre: IGenre) => {
     dispatch(setGenre(genre.id));
   };

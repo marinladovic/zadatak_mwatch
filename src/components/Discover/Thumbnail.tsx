@@ -7,7 +7,6 @@ import { FaBookmark } from 'react-icons/fa';
 import formatRating from '../../utils/formatRating';
 import { POSTER_IMAGE_BASE_URL } from '../../utils/constants';
 import { useState, useEffect } from 'react';
-import PlaceholderPoster from './PlaceholderPoster';
 
 interface Props {
   movie: IMovie;
@@ -20,11 +19,13 @@ function Thumbnail({ movie }: Props) {
   const { id, poster_path, title, vote_average } = movie;
   const [addedToList, setAddedToList] = useState(false);
 
+  /** check if movie is already bookmarked */
   useEffect(() => {
     const isAdded = bookmarks.find((item) => item.id === id);
     setAddedToList(isAdded ? true : false);
   }, [bookmarks, id]);
 
+  /** add/remove movie in bookmarks */
   const addToBookmarkHandler = () => {
     dispatch(
       setBookmarkData({
@@ -58,6 +59,7 @@ function Thumbnail({ movie }: Props) {
           />
         ) : (
           <div style={{ position: 'relative' }}>
+            {/* If move has no poster path set placeholder */}
             <img
               src="/images/placeholder_poster.jpg"
               alt={`${title} poster`}

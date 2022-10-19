@@ -22,12 +22,15 @@ const bookmarkSlice = createSlice({
   name: 'bookmark',
   initialState,
   reducers: {
+    /** populating the bookmark state with data from local storage */
     replaceBookmarks(state, action: PayloadAction<IBookmark[]>) {
       state.bookmarks = action.payload;
     },
+    /** adding a bookmark to the state */
     addBookmark(state, action: PayloadAction<IBookmark>) {
       state.bookmarks.push(action.payload);
     },
+    /** removing a bookmark from the state */
     removeBookmark(state, action: PayloadAction<number>) {
       state.bookmarks = state.bookmarks.filter(
         (bookmark) => bookmark.id !== action.payload
@@ -41,6 +44,7 @@ export const { replaceBookmarks, addBookmark, removeBookmark } =
 export const selectBookmarks = (state: RootState) => state.bookmarks.bookmarks;
 export default bookmarkSlice;
 
+/** responsible for fetching bookmarks from local storaga and setting to state */
 export const fetchBookmarkData = () => {
   return async (dispatch: AppDispatch) => {
     const localBookmarks = localStorage.getItem('bookmarks');
@@ -53,6 +57,7 @@ export const fetchBookmarkData = () => {
   };
 };
 
+/** responsible for adding or removing a bookmark to local storage and state */
 export const setBookmarkData = (bookmark: IBookmark) => {
   return async (dispatch: AppDispatch) => {
     const localBookmarks = localStorage.getItem('bookmarks');

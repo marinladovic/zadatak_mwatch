@@ -26,15 +26,18 @@ function Movie() {
   const dispatch = useAppDispatch();
   const bookmarks = useAppSelector(selectBookmarks);
   const [addedToList, setAddedToList] = useState(false);
+  /** fetch movie details by movie id */
   const { data: movie } = useFetch(
     `${BASE_URL}/movie/${id}?api_key=${API_KEY}&language=en-US&append_to_response=videos,credits,recommendations`
   );
 
+  /** find out if the movie is bookmarked */
   useEffect(() => {
     const isAdded = bookmarks.find((item) => item.id === +id!);
     setAddedToList(isAdded ? true : false);
   }, [bookmarks, id]);
 
+  /** add or remove bookmark */
   const addToBookmarkHandler = () => {
     dispatch(
       setBookmarkData({

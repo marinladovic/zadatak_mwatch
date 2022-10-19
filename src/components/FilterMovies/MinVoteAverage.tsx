@@ -13,10 +13,12 @@ function MinVoteAverage() {
   const minVoteAverage = useAppSelector(selectMinVoteAverage);
   const [voteAverage, setVoteAverage] = useState<number>(minVoteAverage);
 
+  /** update min vote average in store */
   const handleVoteAverageChange = () => {
     dispatch(setMinVoteAverage(voteAverage));
   };
 
+  /** clear min vote average in store */
   const handleClearVoteAverage = () => {
     setVoteAverage(0);
     dispatch(clearMinVoteAverage());
@@ -37,7 +39,7 @@ function MinVoteAverage() {
         <RangeSlider
           value={voteAverage}
           onChange={(changeEvent) => setVoteAverage(+changeEvent.target.value)}
-          onAfterChange={(changeEvent) => handleVoteAverageChange()}
+          onAfterChange={() => handleVoteAverageChange()}
           min={0}
           max={10}
           size="lg"

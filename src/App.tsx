@@ -9,8 +9,6 @@ import SearchModal from './components/SearchModal/SearchModal';
 import { useEffect } from 'react';
 import Movie from './pages/Movie';
 
-let isInitial = true;
-
 function App() {
   const dispatch = useAppDispatch();
   const showSearchModal = useAppSelector(selectShowSearchModal);

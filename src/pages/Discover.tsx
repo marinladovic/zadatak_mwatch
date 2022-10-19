@@ -20,6 +20,7 @@ function Discover() {
   const filteredMovies = useAppSelector(selectFilteredMovies);
   const bannerMovie: IMovie = useBannerMovie();
 
+  /** fetch filtered movies when filter applied */
   useEffect(() => {
     if (isInitial) {
       isInitial = false;

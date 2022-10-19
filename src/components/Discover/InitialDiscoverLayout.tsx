@@ -14,6 +14,7 @@ function InitialDiscoverLayout() {
     fetchPopularHorrorMovies,
   } = requests;
 
+  /** fetch movies */
   const { data: popularMovies } = useFetch(fetchPopularMovies);
   const { data: topRatedMovies } = useFetch(fetchTopRatedMovies);
   const { data: upcomingMovies } = useFetch(fetchUpcomingMovies);
