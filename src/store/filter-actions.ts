@@ -2,6 +2,8 @@ import axios from 'axios';
 import { IFilterState } from './filter-slice';
 import { AppDispatch } from './index';
 import { setMovies, addMovies } from './movie-slice';
+import { toast } from 'react-hot-toast';
+import { toastStyle_basic } from '../utils/toastStyle';
 import buildFilterRequest from '../utils/buildFilterRequest';
 
 export const fetchFilteredData = (filter: IFilterState) => {
@@ -26,7 +28,10 @@ export const fetchFilteredData = (filter: IFilterState) => {
         dispatch(addMovies(data));
       }
     } catch (error) {
-      console.log(error);
+      toast(`Something went wrong. ${error}`, {
+        duration: 3000,
+        style: toastStyle_basic,
+      });
     }
   };
 };
