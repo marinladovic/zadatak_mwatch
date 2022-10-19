@@ -5,23 +5,29 @@ import GenrePicker from './GenrePicker';
 import YearPicker from './YearPicker';
 import MinVoteAverage from './MinVoteAverage';
 import MinVoteCount from './MinVoteCount';
+import { toast } from 'react-hot-toast';
+import { toastStyle_basic } from '../../utils/toastStyle';
 
 function Filters() {
   const dispatch = useAppDispatch();
 
   return (
     <>
-      <button
-        className="clear-single-filter clear-all-filters"
-        onClick={() => {
-          dispatch(clearAllFilters());
-          dispatch(clearFilteredData());
-          // @todo: Should I close the offcanvas here?
-          // handleOffcanvasClose();
-        }}
-      >
-        CLEAR ALL FILTERS
-      </button>
+      <div className="clear-all-container">
+        <button
+          className="clear-single-filter clear-all-filters"
+          onClick={() => {
+            dispatch(clearAllFilters());
+            dispatch(clearFilteredData());
+            toast('All filters cleared.', {
+              duration: 3000,
+              style: toastStyle_basic,
+            });
+          }}
+        >
+          CLEAR ALL FILTERS
+        </button>
+      </div>
       <div className="filter-form">
         <YearPicker />
         <GenrePicker />

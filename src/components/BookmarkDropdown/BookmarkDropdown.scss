@@ -4,10 +4,17 @@
   background-color: transparent;
   border: none;
   padding: 0;
+  text-transform: uppercase;
+  font-size: $size-sm;
+
+  &:hover,
+  &:focus {
+    color: $color-primary-400;
+  }
 }
 
 #bookmark-menu {
-  width: 250px;
+  width: 20rem;
   background-color: $color-dark;
   color: $color-light;
 }
@@ -15,8 +22,9 @@
 .bookmark-container {
   display: flex;
   align-items: center;
-  padding: $size-xs $size-sm;
+  justify-content: space-between;
   column-gap: $size-sm;
+  padding: $size-xs $size-sm;
 }
 
 .bookmark-link,
@@ -30,5 +38,34 @@
 }
 
 .bookmark-link:hover {
-  color: $color-primary-500;
+  color: $color-primary-400;
+}
+
+.bookmark-remove-icon {
+  fill: $color-primary-400;
+  cursor: pointer;
+}
+
+.no-bookmarks {
+  padding: $size-sm;
+  text-align: center;
+  color: gray;
+}
+
+@media (min-width: $lg) {
+  #bookmark-dropdown-button {
+    font-size: $size-base;
+  }
+
+  #bookmark-menu {
+    width: 35rem;
+  }
+
+  .bookmark-container {
+    padding: $size-sm $size-base;
+  }
+
+  .bookmark-link {
+    font-size: $size-base;
+  }
 }

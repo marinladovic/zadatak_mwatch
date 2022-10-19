@@ -2,7 +2,7 @@ import './SearchModal.scss';
 import Form from 'react-bootstrap/Form';
 import Modal from 'react-bootstrap/Modal';
 import { useEffect, useState } from 'react';
-import { useAppDispatch, useAppSelector } from '../store/hooks';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import {
   toggleSearchModal,
   selectShowSearchModal,
@@ -10,9 +10,9 @@ import {
   selectSearchQuery,
   resetSearchQuery,
   clearSearchResults,
-} from '../store/searchModal-slice';
-import { fetchSearchData } from '../store/search-actions';
-import SearchResults from '../components/SearchModal/SearchResults';
+} from '../../store/searchModal-slice';
+import { fetchSearchData } from '../../store/search-actions';
+import SearchResults from './SearchResults';
 
 let isInitial = true;
 
@@ -28,8 +28,8 @@ function SearchModal() {
     dispatch(clearSearchResults());
   };
 
-  const handleSearch = (e: any) => {
-    setSearchTerm(e.target.value);
+  const handleSearch = (query: string) => {
+    setSearchTerm(query);
     const formatedSearchTerm = formatSearchTerm(searchTerm);
     dispatch(setSearchQuery(formatedSearchTerm));
   };
@@ -66,7 +66,7 @@ function SearchModal() {
                 className="search-input"
                 placeholder="Search"
                 value={searchTerm}
-                onChange={(e) => handleSearch(e)}
+                onChange={(e) => handleSearch(e.target.value)}
                 type="text"
               />
             </Form.Group>

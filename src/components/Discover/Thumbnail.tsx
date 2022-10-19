@@ -7,6 +7,7 @@ import { FaBookmark } from 'react-icons/fa';
 import formatRating from '../../utils/formatRating';
 import { POSTER_IMAGE_BASE_URL } from '../../utils/constants';
 import { useState, useEffect } from 'react';
+import PlaceholderPoster from './PlaceholderPoster';
 
 interface Props {
   movie: IMovie;
@@ -49,16 +50,42 @@ function Thumbnail({ movie }: Props) {
         className="thumbnail-card__content"
         onClick={() => navigate(`/movie/${id}`)}
       >
-        <img
-          src={`${POSTER_IMAGE_BASE_URL}${poster_path}`}
-          alt={`${title} poster`}
-          className="thumbnail-card__poster"
-        />
+        {poster_path ? (
+          <img
+            src={`${POSTER_IMAGE_BASE_URL}${poster_path}`}
+            alt={`${title} poster`}
+            className="thumbnail-card__poster"
+          />
+        ) : (
+          <div style={{ position: 'relative' }}>
+            <img
+              src="/images/placeholder_poster.jpg"
+              alt={`${title} poster`}
+              className="thumbnail-card__poster"
+            />
+            <p
+              style={{
+                position: 'absolute',
+                top: '50%',
+                left: '50%',
+                transform: 'translate(-50%, -50%)',
+                color: 'white',
+                fontSize: '1rem',
+                fontWeight: 'bold',
+                backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                padding: '0.2rem',
+                textAlign: 'center',
+              }}
+            >
+              {title}
+            </p>
+          </div>
+        )}
         <div
           className="thumbnail-rating"
           style={{ color: `${formatRating(vote_average)}` }}
         >
-          {vote_average}
+          {vote_average.toFixed(1)}
         </div>
       </div>
     </div>

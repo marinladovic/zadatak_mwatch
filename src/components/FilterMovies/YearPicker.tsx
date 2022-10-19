@@ -1,16 +1,14 @@
 import { useState } from 'react';
 import RangeSlider from 'react-bootstrap-range-slider';
-import { useAppDispatch } from '../../store/hooks';
-import { setYear, clearYear } from '../../store/filter-slice';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
+import { setYear, clearYear, selectYear } from '../../store/filter-slice';
 import { IFilterYear } from '../../store/filter-slice';
 import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
 
 function YearPicker() {
   const dispatch = useAppDispatch();
-  const [selectedYear, setSelectedYear] = useState<IFilterYear>({
-    value: '1970',
-    hasChanged: false,
-  });
+  const year = useAppSelector(selectYear);
+  const [selectedYear, setSelectedYear] = useState<IFilterYear>(year);
 
   const handleYearChange = () => {
     dispatch(setYear(selectedYear));
@@ -42,13 +40,13 @@ function YearPicker() {
         </div>
         <RangeSlider
           value={selectedYear.value}
-          onChange={(changeEvent) =>
+          onChange={(e) =>
             setSelectedYear({
-              value: changeEvent.target.value,
+              value: e.target.value,
               hasChanged: true,
             })
           }
-          onAfterChange={(changeEvent) => handleYearChange()}
+          onAfterChange={() => handleYearChange()}
           min={1900}
           max={2022}
           size="lg"

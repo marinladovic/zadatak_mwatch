@@ -24,7 +24,7 @@ function useBannerMovie() {
   useEffect(() => {
     if (popularMovies) {
       const randomIndex = Math.floor(
-        Math.random() * popularMovies.results.length - 1
+        Math.random() * popularMovies.results.length
       );
       setBannerMovie(popularMovies.results[randomIndex]);
     }

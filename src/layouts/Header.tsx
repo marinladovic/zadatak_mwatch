@@ -2,12 +2,14 @@ import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { FaSearch } from 'react-icons/fa';
 import './Header.scss';
-import { useAppDispatch } from '../store/hooks';
+import { useAppDispatch, useAppSelector } from '../store/hooks';
 import { toggleSearchModal } from '../store/searchModal-slice';
 import BookmarkDropdown from '../components/BookmarkDropdown/BookmarkDropdown';
+import { selectBookmarks } from '../store/bookmark-slice';
 
 function Header() {
   const dispatch = useAppDispatch();
+  const bookmarks = useAppSelector(selectBookmarks);
   const [isScrolled, setIsScrolled] = useState(false);
 
   const handleShowSearchModal = () => {
@@ -43,9 +45,9 @@ function Header() {
               </Link>
             </li>
           </ul>
+          {bookmarks && bookmarks.length > 0 && <BookmarkDropdown />}
         </div>
         <div className="header-content__right">
-          <BookmarkDropdown />
           <FaSearch
             className="search-icon"
             onClick={() => handleShowSearchModal()}

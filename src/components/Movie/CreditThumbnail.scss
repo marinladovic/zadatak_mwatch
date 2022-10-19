@@ -1,0 +1,42 @@
+@import '../../index.scss';
+
+.credit-thumbnail {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.25rem;
+  cursor: pointer;
+  width: 6.25rem;
+}
+
+.credit-thumbnail__profile-container {
+  height: 9.125rem;
+}
+
+.credit-thumbnail__profile {
+  border-radius: 0.25rem;
+  height: 9rem;
+  width: 6rem;
+  object-fit: cover;
+}
+
+.credit-thumbnail__name {
+  margin-top: 0.5rem;
+  font-size: $size-xs;
+  font-weight: 500;
+  color: $color-text;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.credit-thumbnail__job {
+  font-size: $size-xs;
+  font-weight: 500;
+  color: $color-text;
+  text-align: center;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
+}

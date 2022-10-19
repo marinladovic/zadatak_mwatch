@@ -1,5 +1,7 @@
 import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { AppDispatch, RootState } from './index';
+import { toast } from 'react-hot-toast';
+import { toastStyle_basic } from '../utils/toastStyle';
 
 export interface IBookmark {
   id: number;
@@ -64,16 +66,28 @@ export const setBookmarkData = (bookmark: IBookmark) => {
         bookmarks.push(newBookmark);
         localStorage.setItem('bookmarks', JSON.stringify(bookmarks));
         dispatch(addBookmark(newBookmark));
+        toast(`${bookmark.title} added to My List.`, {
+          duration: 3000,
+          style: toastStyle_basic,
+        });
       } else {
         const newBookmarks = bookmarks.filter(
           (bookmark: IBookmark) => bookmark.id !== newBookmark.id
         );
         localStorage.setItem('bookmarks', JSON.stringify(newBookmarks));
         dispatch(removeBookmark(newBookmark.id));
+        toast(`${bookmark.title} removed from My List.`, {
+          duration: 3000,
+          style: toastStyle_basic,
+        });
       }
     } else {
       localStorage.setItem('bookmarks', JSON.stringify([newBookmark]));
       dispatch(addBookmark(newBookmark));
+      toast(`${bookmark.title} added to My List.`, {
+        duration: 3000,
+        style: toastStyle_basic,
+      });
     }
   };
 };

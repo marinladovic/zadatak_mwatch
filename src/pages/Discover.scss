@@ -3,7 +3,7 @@
 .discover-container {
   display: flex;
   flex-direction: column;
-  padding: $size-6xl $size-xl;
+  padding: $size-8xl $size-xl;
   max-width: $xxl;
   margin: 0 auto;
 }
@@ -29,17 +29,7 @@
 }
 
 @media (min-width: $lg) {
-  .discover-main {
-    grid-template-columns: repeat(8, 1fr);
-    column-gap: $size-4xl;
-  }
-
-  .filters-sidebar {
-    display: block;
-    grid-column: span 2;
-  }
-
-  .movie-display {
-    grid-column: span 6;
+  .discover-container {
+    padding: 10rem $size-2xl;
   }
 }

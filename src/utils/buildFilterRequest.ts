@@ -18,7 +18,7 @@ const buildFilterRequest = (filter: IFilterState) => {
       minVoteCount > 0 ? `&vote_count.gte=${minVoteCount}` : '';
     const pageRequest = page > 1 ? `&page=${page}` : '';
 
-    requestString = `${DISCOVER_URL}?api_key=${API_KEY}&language=en-US${yearRequest}${genresRequest}${minVoteAverageRequest}${minVoteCountRequest}${pageRequest}`;
+    requestString = `${DISCOVER_URL}?api_key=${API_KEY}&language=en-US&sort_by=popularity.desc&include_adult=false&${yearRequest}${genresRequest}${minVoteAverageRequest}${minVoteCountRequest}${pageRequest}`;
   }
   return requestString;
 };

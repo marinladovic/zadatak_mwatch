@@ -5,8 +5,9 @@ import { fetchBookmarkData } from './store/bookmark-slice';
 import Header from './layouts/Header';
 import Discover from './pages/Discover';
 import Home from './pages/Home';
-import SearchModal from './layouts/SearchModal';
+import SearchModal from './components/SearchModal/SearchModal';
 import { useEffect } from 'react';
+import Movie from './pages/Movie';
 
 let isInitial = true;
 
@@ -25,6 +26,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/discover" element={<Discover />} />
+          <Route path="/movie/:id" element={<Movie />} />
         </Routes>
       </Router>
       {showSearchModal && <SearchModal />}

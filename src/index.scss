@@ -74,37 +74,58 @@ body {
 
 /* Typography */
 
-h1 {
-  font-size: $size-xl;
+.heading-1 {
+  font-size: $size-2xl;
   font-weight: $font-bold;
   text-shadow: $text-shadow-md;
   text-transform: capitalize;
 }
 
-h2 {
+.heading-2 {
   font-size: $size-lg;
   font-weight: $font-semibold;
   text-shadow: $text-shadow-md;
   text-transform: capitalize;
 }
 
-p {
+.heading-3 {
+  font-size: $size-base;
+  font-weight: $font-semibold;
+  text-shadow: $text-shadow-md;
+  text-transform: capitalize;
+}
+
+.para {
   font-size: $size-sm;
   font-weight: $font-normal;
   margin-bottom: 0;
 }
 
 @media (min-width: $md) {
-  h1 {
+  .heading-1 {
+    font-size: $size-4xl;
+  }
+
+  .heading-2 {
     font-size: $size-2xl;
   }
 
-  h2 {
-    font-size: $size-xl;
+  .para {
+    font-size: $size-base;
+  }
+}
+
+@media (min-width: $lg) {
+  .heading-1 {
+    font-size: $size-6xl;
   }
 
-  p {
-    font-size: $size-base;
+  .heading-2 {
+    font-size: $size-2xl;
+  }
+
+  .para {
+    font-size: $size-xl;
   }
 }
 
@@ -147,14 +168,4 @@ p {
     #141414 68%,
     #141414 100%
   );
-}
-
-@media (min-width: $lg) {
-  h1 {
-    font-size: $size-4xl;
-  }
-
-  h2 {
-    font-size: $size-2xl;
-  }
 }

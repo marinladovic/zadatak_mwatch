@@ -11,7 +11,6 @@ import { fetchFilteredData } from '../store/filter-actions';
 import { selectFilter } from '../store/filter-slice';
 import FilteredDiscoverLayout from '../components/Discover/FilteredDiscoverLayout';
 import InitialDiscoverLayout from '../components/Discover/InitialDiscoverLayout';
-import Filters from '../components/FilterMovies/Filters';
 
 let isInitial = true;
 
@@ -41,9 +40,6 @@ function Discover() {
       />
       <FilterMovies />
       <main className="discover-main">
-        <div className="filters-sidebar">
-          <Filters />
-        </div>
         <div className="movie-display">
           {filteredMovies.movies.length > 0 ? (
             <FilteredDiscoverLayout />

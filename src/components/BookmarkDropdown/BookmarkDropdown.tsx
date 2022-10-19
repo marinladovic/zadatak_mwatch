@@ -11,25 +11,20 @@ function BookmarkDropdown() {
 
   return (
     <Dropdown>
-      <Dropdown.Toggle id="bookmark-dropdown-button">Bookmarks</Dropdown.Toggle>
+      <Dropdown.Toggle id="bookmark-dropdown-button">My List</Dropdown.Toggle>
       <Dropdown.Menu id="bookmark-menu">
-        {bookmarks ? (
+        {bookmarks &&
           bookmarks.map((bookmark) => (
             <div key={bookmark.id} className="bookmark-container">
-              <div>
-                <FaMinusCircle
-                  style={{ fill: 'red', cursor: 'pointer' }}
-                  onClick={() => dispatch(setBookmarkData(bookmark))}
-                />
-              </div>
               <Link to={`/movie/${bookmark.id}`} className="bookmark-link">
                 {bookmark.title}
               </Link>
+              <FaMinusCircle
+                className="bookmark-remove-icon"
+                onClick={() => dispatch(setBookmarkData(bookmark))}
+              />
             </div>
-          ))
-        ) : (
-          <Dropdown.Item>No bookmarks yet</Dropdown.Item>
-        )}
+          ))}
       </Dropdown.Menu>
     </Dropdown>
   );

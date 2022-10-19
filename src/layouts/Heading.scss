@@ -3,6 +3,12 @@
 .heading-container {
   display: flex;
   flex-direction: column;
-  margin-bottom: $size-4xl;
-  max-width: 60%;
+  margin-bottom: $size-5xl;
+  width: 100%;
+}
+
+@media (min-width: $md) {
+  .heading-container {
+    width: 66%;
+  }
 }

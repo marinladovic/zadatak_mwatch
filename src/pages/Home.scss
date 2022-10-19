@@ -1,0 +1,28 @@
+@import '../index.scss';
+
+.home-container {
+  display: flex;
+  flex-direction: column;
+  padding: $size-8xl $size-xl;
+  max-width: $xxl;
+  margin: 0 auto;
+
+  p {
+    margin-bottom: 0;
+  }
+}
+
+.btn-home {
+  width: 12rem;
+  padding-top: $size-base;
+  padding-bottom: $size-base;
+  margin: 0 auto;
+}
+
+@media (min-width: $md) {
+  .btn-home {
+    width: 18rem;
+    margin: 0;
+    font-size: $size-lg !important;
+  }
+}

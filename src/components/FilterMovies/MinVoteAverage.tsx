@@ -1,15 +1,17 @@
 import { useState } from 'react';
 import RangeSlider from 'react-bootstrap-range-slider';
-import { useAppDispatch } from '../../store/hooks';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import {
   setMinVoteAverage,
   clearMinVoteAverage,
+  selectMinVoteAverage,
 } from '../../store/filter-slice';
 import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
 
 function MinVoteAverage() {
   const dispatch = useAppDispatch();
-  const [voteAverage, setVoteAverage] = useState<number>(0);
+  const minVoteAverage = useAppSelector(selectMinVoteAverage);
+  const [voteAverage, setVoteAverage] = useState<number>(minVoteAverage);
 
   const handleVoteAverageChange = () => {
     dispatch(setMinVoteAverage(voteAverage));

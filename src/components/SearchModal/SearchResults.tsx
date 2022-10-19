@@ -17,18 +17,26 @@ function SearchResults() {
       <div className="search-result-container">
         {movies &&
           movies.slice(0, 6).map((movie) => (
-            <div
-              key={movie.id}
-              className="search-result"
-              onClick={() => console.log(`navigate to: /movie/${movie.id}`)}
-            >
-              <div className="search-result__image-container">
-                <img
-                  src={`${POSTER_IMAGE_BASE_URL}${movie.poster_path}`}
-                  alt={movie.title}
-                  className="search-result__image"
-                />
-              </div>
+            <div key={movie.id} className="search-result">
+              <a href={`/movie/${movie.id}`}>
+                <div className="search-result__image-container">
+                  {movie.poster_path ? (
+                    <img
+                      src={`${POSTER_IMAGE_BASE_URL}${
+                        movie.poster_path || movie.backdrop_path
+                      }`}
+                      alt={movie.title}
+                      className="search-result__image"
+                    />
+                  ) : (
+                    <img
+                      src="/images/placeholder_poster.jpg"
+                      alt={movie.title}
+                      className="search-result__image"
+                    />
+                  )}
+                </div>
+              </a>
               <div className="search-result__info">
                 <p className="search-result__title">{movie.title}</p>
                 <p className="search-result__release-date">

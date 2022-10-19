@@ -41,8 +41,10 @@
   font-size: $size-sm;
 }
 
-.clear-all-filters {
-  margin-bottom: $size-base;
+.clear-all-container {
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: $size-2xs;
 }
 
 .year-label-container {
@@ -55,10 +57,4 @@
   display: flex;
   flex-direction: column;
   row-gap: $size-xl;
-}
-
-@media (min-width: $lg) {
-  .offcanvas-container {
-    display: none;
-  }
 }

@@ -1,12 +1,17 @@
 import { useState } from 'react';
-import { useAppDispatch } from '../../store/hooks';
+import { useAppDispatch, useAppSelector } from '../../store/hooks';
 import RangeSlider from 'react-bootstrap-range-slider';
 import 'react-bootstrap-range-slider/dist/react-bootstrap-range-slider.css';
-import { setMinVoteCount, clearMinVoteCount } from '../../store/filter-slice';
+import {
+  setMinVoteCount,
+  clearMinVoteCount,
+  selectMinVoteCount,
+} from '../../store/filter-slice';
 
 function MinVoteCount() {
   const dispatch = useAppDispatch();
-  const [voteCount, setVoteCount] = useState<number>(0);
+  const minVoteCount = useAppSelector(selectMinVoteCount);
+  const [voteCount, setVoteCount] = useState<number>(minVoteCount);
 
   const handleVoteCountChange = () => {
     dispatch(setMinVoteCount(voteCount));
